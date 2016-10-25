@@ -39,7 +39,6 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'django.contrib.sites',
 
-    'django_jenkins',
     'django_extensions',
 
     'django.contrib.gis',
@@ -75,8 +74,8 @@ if DEBUG:
     )
 
     MIDDLEWARE_CLASSES = (
-        'debug_toolbar.middleware.DebugToolbarMiddleware',
-    ) + MIDDLEWARE_CLASSES
+                             'debug_toolbar.middleware.DebugToolbarMiddleware',
+                         ) + MIDDLEWARE_CLASSES
 
     DEBUG_TOOLBAR_PATCH_SETTINGS = False
     DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False,}
@@ -180,8 +179,7 @@ REST_FRAMEWORK = dict(
     COERCE_DECIMAL_TO_STRING=False,
 )
 
-
-CORS_ORIGIN_ALLOW_ALL = True # if True, the whitelist will not be used and all origins will be accepted
+CORS_ORIGIN_ALLOW_ALL = True  # if True, the whitelist will not be used and all origins will be accepted
 
 CORS_ORIGIN_REGEX_WHITELIST = (
     '^(https?://)?localhost(:\d+)?$',
@@ -199,8 +197,6 @@ X_FRAME_OPTIONS = 'DENY'
 HEALTH_MODEL = 'panoramas.Panorama'
 
 # OBJECT_STORE SETTINGS
-
-import panorama.objectstore_settings
 
 OBJECTSTORE_USER = objectstore_settings.OBJECTSTORE_USER
 OBJECTSTORE_PASSWORD = objectstore_settings.OBJECTSTORE_PASSWORD
